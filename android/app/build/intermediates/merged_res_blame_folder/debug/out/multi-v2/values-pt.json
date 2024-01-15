@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.chicagoart.app-mergeDebugResources-26:/values-pt/values-pt.xml",
+            "outputFile": "com.chicagoart.app-mergeDebugResources-34:/values-pt/values-pt.xml",
             "map": [
                 {
                     "source": "/Users/claudiomazzoli/.gradle/caches/transforms-3/d10d040f6dc36d35e250d48d5ebb15bd/transformed/jetified-react-android-0.73.2-debug/res/values-pt/values-pt.xml",

@@ -1,15 +1,23 @@
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
-  "baseUrl": ".",
-  "paths": {
-    "app": ["./src/app"],
-    "components": ["./src/components"],
-    "hooks": ["./src/hooks"],
-    "services": ["./src/services"],
-    "store": ["./src/store"],
-    "theme": ["./src/theme"],
-    "types": ["./src/types"],
-    "utils": ["./src/utils"],
-    "assets": ["./assets"]
-  }
+  "compilerOptions": {
+    "jsx": "react",
+    "types": ["react-native", "node"],
+    "typeRoots": ["@types", "./node_modules/@types"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"],
+      "types/*": ["./@types/*"],
+      "@store/*": ["./src/store/*"],
+      "@stacks/*": ["./src/stacks/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@components/*": ["src/components/*"],
+      "@theme/*": ["./src/theme/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@assets/*": ["./assets/*"],
+      "@declarations/": ["./src/declarations"]
+    }
+  },
+  "include": ["src/**/*", "**/*.js", "**/*.ts", "**/*.tsx", "src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
