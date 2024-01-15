@@ -3,7 +3,7 @@ import { SafeAreaView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import PrivateStack from "../PrivateStack";
 
-const Main = () => {
+const Main = (): React.JSX.Element => {
   return (
     // eslint-disable-next-line react-native/no-inline-styles
     <NavigationContainer>

@@ -10,7 +10,7 @@ import HomeIcon from "@assets/icons/HomeIcon.svg";
 const TabNav = createBottomTabNavigator();
 
 function TabBarIcon({ icon, focused }) {
-  return <SvgXml xml={icon} color={focused ? "green" : "white"} />;
+  return <SvgXml xml={icon} color={focused ? "orange" : "#EEE"} />;
 }
 
 const TabStack = () => {
@@ -38,7 +38,7 @@ const TabStack = () => {
         component={Home}
         options={{
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon icon={HomeIcon} focused={focused} size={30} />
+            <TabBarIcon icon={HomeIcon} focused={focused} size={32} />
           ),
         }}
       />
@@ -47,7 +47,7 @@ const TabStack = () => {
         component={Favorites}
         options={{
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon icon={FavoritesIcon} focused={focused} size={30} />
+            <TabBarIcon icon={FavoritesIcon} focused={focused} size={32} />
           ),
         }}
       />

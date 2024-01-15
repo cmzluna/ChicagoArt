@@ -5,7 +5,7 @@ import DrawerStack from "@stacks/DrawerStack";
 
 const PrivateStackNav = createNativeStackNavigator<PrivateStackParamList>();
 
-const PrivateStack = () => (
+const PrivateStack = (): React.JSX.Element => (
   <PrivateStackNav.Navigator>
     <PrivateStackNav.Screen
       name="DrawerStack"

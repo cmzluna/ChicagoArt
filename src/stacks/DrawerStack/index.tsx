@@ -3,7 +3,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import TabStack from "@stacks/TabStack";
 import DrawerMenu from "@components/DrawerMenu";
 
-const DrawerStack = () => {
+const DrawerStack = (): React.JSX.Element => {
   const Drawer = createDrawerNavigator();
 
   return (
