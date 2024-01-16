@@ -1,17 +1,18 @@
 import styled from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const Container = styled.View`
-  flex: 1;
-  padding: 8px;
+const ArtContainer = styled.View`
+  display: flex;
+  flex-direction: row;
+
+  height: 250px;
 `;
 
-const ArtContainer = styled.View`
-  width: 100%;
-  display: flex;
+const ColumnWrapper = styled.View`
+  flex-direction: column;
   flex: 1;
-  align-items: "center";
-  justify-content: "center";
+  gap: 8px;
+  padding: 8px;
 `;
 
 const SafeAreaContainer = styled(SafeAreaView)`
@@ -22,15 +23,17 @@ const SafeAreaContainer = styled(SafeAreaView)`
 const Title = styled.Text`
   font-size: 16px;
   font-weight: 700;
+  color: black;
 `;
 
 const SubTitle = styled.Text`
   font-size: 14px;
   font-weight: 700;
+  color: grey;
 `;
 
 const Text = styled.Text`
   font-size: 12px;
   font-weight: 400;
 `;
-export { SafeAreaContainer, Container, ArtContainer, Title, SubTitle, Text };
+export { SafeAreaContainer, ArtContainer, ColumnWrapper, Title, SubTitle, Text };

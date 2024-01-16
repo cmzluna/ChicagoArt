@@ -13,7 +13,7 @@ module.exports = {
         root: ["."],
         alias: {
           "@": "./src",
-          "@types": "./@types",
+          "@types": "./src/types",
           "@store": "./src/store",
           "@assets": "./assets",
           "@utils": "./src/utils",

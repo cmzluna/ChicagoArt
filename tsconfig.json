@@ -7,8 +7,9 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"],
-      "types/*": ["./@types/*"],
+      "@types/*": ["./src/types/*"],
       "@store/*": ["./src/store/*"],
+      "@hooks/*": ["./src/hooks/*"],
       "@stacks/*": ["./src/stacks/*"],
       "@screens/*": ["./src/screens/*"],
       "@components/*": ["src/components/*"],
@@ -18,6 +19,6 @@
       "@declarations/": ["./src/declarations"]
     }
   },
-  "include": ["src/**/*", "**/*.js", "**/*.ts", "**/*.tsx", "src/**/*.ts"],
+  "include": ["src/**/*", "**/*.js", "**/*.ts", "**/*.tsx", "src/**/*.ts", "src/types"],
   "exclude": ["node_modules", "dist"]
 }

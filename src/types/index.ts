@@ -2,6 +2,7 @@ export interface Artwork {
   id: number;
   title: string;
   api_link: string;
+  image_id: string;
   thumbnail: {
     lqip: string;
   };

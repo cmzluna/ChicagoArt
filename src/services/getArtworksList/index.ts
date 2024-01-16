@@ -8,7 +8,7 @@ interface ApiOutput {
 
 const getArtworksList = async (): Promise<ApiOutput> =>
   await callApi<ApiOutput>(
-    "v1/artworks?fields=id,title,artist_display,date_display,main_reference_number",
+    "v1/artworks?fields=id,image_id,title,artist_display,date_display,main_reference_number",
     "get",
     {},
     "Error retrieving artworks list 🤔",
