@@ -3,10 +3,14 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const Container = styled.View`
   width: 100%;
-  display: flex;
+  padding: 8px;
   flex: 1;
-  align-items: "center";
-  justify-content: "center";
+`;
+
+const InnerWrapper = styled.View`
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 `;
 
 const SafeAreaContainer = styled(SafeAreaView)`
@@ -19,4 +23,4 @@ const Title = styled.Text`
   font-weight: 700;
 `;
 
-export { SafeAreaContainer, Container, Title };
+export { SafeAreaContainer, InnerWrapper, Container, Title };
