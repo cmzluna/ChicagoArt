@@ -6,6 +6,7 @@ import Favorites from "@screens/Favorites";
 import { Platform } from "react-native";
 import FavoritesIcon from "@assets/icons/FavoritesIcon.svg";
 import HomeIcon from "@assets/icons/HomeIcon.svg";
+import ArtworkDetail from "@/screens/ArtworkDetail";
 
 const TabNav = createBottomTabNavigator();
 
@@ -29,7 +30,12 @@ const TabStack = () => {
           width: "100%",
           display: "flex",
           alignContent: "center",
+          paddingHorizontal: 10,
+          alignItems: "center", // Alinear los íconos verticalmente en el centro
           height: Platform.OS === "ios" ? 100 : 70,
+        },
+        tabBarItemStyle: {
+          flex: 1, // Ajusta el espacio ocupado por cada ícono
         },
       }}
     >
@@ -49,6 +55,14 @@ const TabStack = () => {
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon icon={FavoritesIcon} focused={focused} size={32} />
           ),
+        }}
+      />
+      <TabNav.Screen
+        name="ArtworkDetail"
+        component={ArtworkDetail}
+        options={{
+          tabBarButton: () => null,
+          tabBarVisible: false,
         }}
       />
     </TabNav.Navigator>

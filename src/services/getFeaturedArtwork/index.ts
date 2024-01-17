@@ -5,6 +5,7 @@ interface ApiOutput {
   success: boolean;
   data: Artwork[];
 }
+
 const requiredFields = [
   "id",
   "title",
@@ -12,17 +13,18 @@ const requiredFields = [
   "date_display",
   "artist_display",
   "place_of_origin",
-  "short_description",
   "description",
   "thumbnail",
 ].toString();
 
-const getArtworksList = async (): Promise<ApiOutput> =>
+const featuredQuery: string = `search?query[term][is_public_domain]=true&[is_boosted]=true&limit=1&fields=${requiredFields}`;
+
+const getFeaturedArtwork = async (): Promise<ApiOutput> =>
   await callApi<ApiOutput>(
-    `v1/artworks?fields=${requiredFields}`,
+    `v1/artworks/${featuredQuery}`,
     "get",
     {},
-    "Error retrieving artworks list 🤔",
+    "Error retrieving artwork information 🤔",
   );
 
-export default getArtworksList;
+export default getFeaturedArtwork;

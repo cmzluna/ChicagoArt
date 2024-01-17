@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import artworksReducer from "./slices/artworks";
-
+import favoritesReducer from "./slices/favorites";
 import {
   persistStore,
   persistReducer,
@@ -22,15 +22,14 @@ const rootPersistConfig = {
 };
 
 const favoritesPersistConfig = {
-  key: "auth",
+  key: "favorites",
   storage: AsyncStorage,
-  blacklist: ["isLogging"],
   stateReconciler: autoMergeLevel2,
 };
 
 const rootReducer = combineReducers({
   artworks: artworksReducer,
-  favorites: persistReducer(favoritesPersistConfig, artworksReducer),
+  favorites: favoritesReducer,
 });
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);

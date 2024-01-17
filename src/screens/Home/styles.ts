@@ -13,6 +13,11 @@ const ArtContainer = styled.View`
   align-items: "center";
   justify-content: "center";
 `;
+const InnerWrapper = styled.View`
+  background-color: #f9fafc;
+  border: 1px solid grey;
+  border-radius: 8px;
+`;
 
 const SafeAreaContainer = styled(SafeAreaView)`
   flex: 1;
@@ -33,4 +38,4 @@ const Text = styled.Text`
   font-size: 12px;
   font-weight: 400;
 `;
-export { SafeAreaContainer, Container, ArtContainer, Title, SubTitle, Text };
+export { SafeAreaContainer, Container, InnerWrapper, ArtContainer, Title, SubTitle, Text };

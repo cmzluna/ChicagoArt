@@ -6,7 +6,6 @@ const Container = styled.View`
   justify-content: space-between;
   align-items: center;
   display: flex;
-  border: 3px solid orange;
   height: 100px;
 `;
 

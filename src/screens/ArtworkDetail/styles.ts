@@ -5,18 +5,69 @@ const Container = styled.View`
   width: 100%;
   display: flex;
   flex: 1;
-  align-items: "center";
-  justify-content: "center";
+  padding: 8px;
+  gap: 8px;
+`;
+
+const ArtContainer = styled.View`
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  height: 250px;
+  border: 1px solid red;
+`;
+
+const List = styled.View`
+  width: 100%;
+  background-color: #eee;
+  padding: 4px;
+  border-color: #ccc;
+  border-bottom-width: 1px;
 `;
 
 const SafeAreaContainer = styled(SafeAreaView)`
   flex: 1;
   background-color: #f9fafc;
+  padding: 8px;
 `;
 
 const Title = styled.Text`
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
 `;
 
-export { SafeAreaContainer, Container, Title };
+const ColumnWrapper = styled.View`
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+  padding: 8px;
+`;
+
+const RowWrapper = styled.View`
+  flex-direction: row;
+  flex: 1;
+  gap: 8px;
+`;
+
+const StyledImage = styled.Image`
+  margin-top: 12px;
+  width: 100%;
+`;
+
+const SubTitle = styled.Text`
+  font-size: 14px;
+  font-weight: 700;
+  color: grey;
+`;
+
+export {
+  SafeAreaContainer,
+  Container,
+  List,
+  Title,
+  ArtContainer,
+  ColumnWrapper,
+  StyledImage,
+  RowWrapper,
+  SubTitle,
+};

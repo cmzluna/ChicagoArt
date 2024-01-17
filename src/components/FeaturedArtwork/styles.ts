@@ -3,31 +3,31 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const ArtContainer = styled.View`
   display: flex;
+  width: 95%;
+  align-self: center;
   flex-direction: row;
-  gap: 8px;
-  height: 250px;
+  padding: 8px;
 `;
 
 const ColumnWrapper = styled.View`
   flex-direction: column;
-  flex: 1;
+  align-items: flex-end;
   gap: 8px;
   padding: 8px;
+  flex: 1;
 `;
 
 const SafeAreaContainer = styled(SafeAreaView)`
-  flex: 1;
+  height: 420px;
   background-color: #f9fafc;
+  border: 1px solid grey;
+  border-radius: 8px;
 `;
 
 const Title = styled.Text`
   font-size: 16px;
   font-weight: 700;
   color: black;
-`;
-
-const StyledImage = styled.Image`
-  margin-top: 12px;
 `;
 
 const SubTitle = styled.Text`
@@ -40,4 +40,4 @@ const Text = styled.Text`
   font-size: 12px;
   font-weight: 400;
 `;
-export { SafeAreaContainer, ArtContainer, ColumnWrapper, Title, SubTitle, Text, StyledImage };
+export { SafeAreaContainer, ArtContainer, ColumnWrapper, Title, SubTitle, Text };
