@@ -13,10 +13,12 @@ import useCallApi from "@/hooks/useCallApi";
 import getArtworkById from "@/services/getArtworkById";
 import LoadingIndicator from "@/components/LoadingIndicator";
 import { Dimensions, ScrollView, Text, View } from "react-native";
-import { truncateText } from "@/utils";
+import { removeParagraphTags, truncateText } from "@/utils";
 import FavoriteSelector from "@/components/FavoriteSelector";
 import { useSelector } from "react-redux";
 import Header from "@/components/Header";
+import Animated from "react-native-reanimated";
+import { transition } from "@/components/ArtworkList";
 
 export default function ArtworkDetail({ route }): React.JSX.Element {
   const { id } = route.params;
@@ -26,7 +28,7 @@ export default function ArtworkDetail({ route }): React.JSX.Element {
     dependencies: [id],
   });
 
-  const imageUrl = `https://www.artic.edu/iiif/2/${artworkData.image_id}/full/1686,/0/default.jpg`;
+  const imageUrl = `https://www.artic.edu/iiif/2/${artworkData.image_id}/full/843,/0/default.jpg`;
 
   if (isLoadingArtwork) return <LoadingIndicator />;
   const thumbnailObject = artworkData["thumbnail"];
@@ -35,13 +37,41 @@ export default function ArtworkDetail({ route }): React.JSX.Element {
   const imageHeight = imageRatio != null ? Dimensions.get("window").width * imageRatio : null;
 
   console.log("artworkData-----------> ", artworkData.thumbnail);
+  console.log("artworkData.image_id-----------> ", artworkData.image_id);
+
   console.log("imageRatio -> ", imageRatio);
+  const descriptionText = artworkData.description && removeParagraphTags(artworkData.description);
+
   return (
     <SafeAreaContainer>
-      <Header />
+      <Animated.View
+        sharedTransitionTag="headerAnimation"
+        sharedTransitionStyle={transition}
+        style={{
+          originX: 100,
+        }}
+      >
+        <Header />
+      </Animated.View>
       <Container>
         <ScrollView>
-          <StyledImage source={{ uri: imageUrl }} style={{ height: imageHeight }} />
+          <Animated.View
+            sharedTransitionTag={`imageAnim_${artworkData.id}`}
+            sharedTransitionStyle={transition}
+            style={{
+              height: imageHeight,
+              overflow: "hidden",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <StyledImage
+              source={{ uri: imageUrl }}
+              style={{ height: imageHeight }}
+              sharedTransitionTag="imageAnim"
+            />
+          </Animated.View>
+
           <ColumnWrapper>
             <RowWrapper>
               <Title>{artworkData.title}</Title>
@@ -52,7 +82,7 @@ export default function ArtworkDetail({ route }): React.JSX.Element {
               <SubTitle>{truncateText(artworkData.artist_display, 10)}</SubTitle>
             )}
             {artworkData.description ? (
-              <Title>{artworkData.description}</Title>
+              <Title>{descriptionText}</Title>
             ) : (
               <Title>No description available for this artwork</Title>
             )}

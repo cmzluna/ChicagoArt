@@ -11,3 +11,8 @@ export const truncateText = (text: string, wordLimit: number): string => {
 
   return words.length > wordLimit ? `${truncatedText} [...]` : truncatedText;
 };
+
+export const removeParagraphTags = (textWithTags: string) => {
+  const textWithoutTags = textWithTags.replace(/^<p>|<\/p>$/g, "");
+  return textWithoutTags;
+};

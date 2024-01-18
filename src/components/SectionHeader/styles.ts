@@ -5,10 +5,9 @@ const Container = styled.View`
   align-items: center;
   gap: 8px;
   padding: 8px;
-  flex: 1;
 `;
 const SectionTitle = styled.Text`
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 800;
   font-family: "Montserrat-Light";
   color: black;

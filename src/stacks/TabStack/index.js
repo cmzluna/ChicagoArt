@@ -7,11 +7,12 @@ import { Platform } from "react-native";
 import FavoritesIcon from "@assets/icons/FavoritesIcon.svg";
 import HomeIcon from "@assets/icons/HomeIcon.svg";
 import ArtworkDetail from "@/screens/ArtworkDetail";
+import PrimaryStack from "../PrimaryStack";
 
 const TabNav = createBottomTabNavigator();
 
 function TabBarIcon({ icon, focused }) {
-  return <SvgXml xml={icon} color={focused ? "orange" : "#EEE"} />;
+  return <SvgXml xml={icon} color={focused ? "#dc84a4" : "#dfcfd4"} />;
 }
 
 const TabStack = () => {
@@ -24,7 +25,7 @@ const TabStack = () => {
         tabBarStyle: {
           borderTopWidth: 1,
           borderTopColor: "#000",
-          backgroundColor: "#656565",
+          backgroundColor: "#302e44",
           paddingTop: 24,
           paddingBottom: 24,
           width: "100%",
@@ -32,7 +33,7 @@ const TabStack = () => {
           alignContent: "center",
           paddingHorizontal: 10,
           alignItems: "center", // Alinear los íconos verticalmente en el centro
-          height: Platform.OS === "ios" ? 100 : 70,
+          height: Platform.OS === "ios" ? 80 : 65,
         },
         tabBarItemStyle: {
           flex: 1, // Ajusta el espacio ocupado por cada ícono
@@ -40,8 +41,8 @@ const TabStack = () => {
       }}
     >
       <TabNav.Screen
-        name="Home"
-        component={Home}
+        name="PrimaryStack"
+        component={PrimaryStack}
         options={{
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon icon={HomeIcon} focused={focused} size={32} />
@@ -57,14 +58,14 @@ const TabStack = () => {
           ),
         }}
       />
-      <TabNav.Screen
+      {/* <TabNav.Screen
         name="ArtworkDetail"
         component={ArtworkDetail}
         options={{
           tabBarButton: () => null,
           tabBarVisible: false,
         }}
-      />
+      /> */}
     </TabNav.Navigator>
   );
 };

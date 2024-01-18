@@ -5,7 +5,7 @@ import styled from "styled-components";
 const { horizontalScale, verticalScale } = getScale();
 
 const Container = styled.View`
-  background-color: #b8b8b8;
+  background-color: #dfcfd4;
   display: flex;
   flex-direction: column;
   flex: 1;

@@ -3,7 +3,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const Container = styled.View`
   flex: 1;
-  padding: 8px;
 `;
 
 const ArtContainer = styled.View`
@@ -14,9 +13,7 @@ const ArtContainer = styled.View`
   justify-content: "center";
 `;
 const InnerWrapper = styled.View`
-  background-color: #f9fafc;
-  border: 1px solid grey;
-  border-radius: 8px;
+  padding: 10px;
 `;
 
 const SafeAreaContainer = styled(SafeAreaView)`

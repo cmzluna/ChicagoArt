@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Animated from "react-native-reanimated";
 
 const Container = styled.View`
   width: 100%;
@@ -28,7 +29,6 @@ const List = styled.View`
 const SafeAreaContainer = styled(SafeAreaView)`
   flex: 1;
   background-color: #f9fafc;
-  padding: 8px;
 `;
 
 const Title = styled.Text`
@@ -49,7 +49,7 @@ const RowWrapper = styled.View`
   gap: 8px;
 `;
 
-const StyledImage = styled.Image`
+const StyledImage = styled(Animated.Image)`
   margin-top: 12px;
   width: 100%;
 `;

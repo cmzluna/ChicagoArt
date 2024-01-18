@@ -10,9 +10,10 @@ const DrawerStack = (): React.JSX.Element => {
     <Drawer.Navigator
       screenOptions={{
         drawerStyle: {
-          backgroundColor: "#EEE",
+          backgroundColor: "#dfcfd4",
           zIndex: 100,
-          width: 300,
+          width: 200,
+          marginBottom: 65,
         },
         headerShown: false,
         drawerPosition: "right",

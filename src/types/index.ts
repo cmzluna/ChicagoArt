@@ -3,6 +3,7 @@ export interface Artwork {
   title: string;
   api_link: string;
   image_id: string;
+  description: string;
   thumbnail: {
     lqip: string;
   };

@@ -18,8 +18,7 @@ const ColumnWrapper = styled.View`
 `;
 
 const SafeAreaContainer = styled(SafeAreaView)`
-  height: 420px;
-  background-color: #f9fafc;
+  background-color: #eee;
   border: 1px solid grey;
   border-radius: 8px;
 `;
