@@ -5,7 +5,7 @@ import styled from "styled-components";
 const { horizontalScale, verticalScale } = getScale();
 
 const Container = styled.View`
-  background-color: #b8b8b8;
+  background-color: #dfcfd4;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -51,34 +51,10 @@ const SubTitle = styled(Title)`
 
 const RatingWrapper = styled.View`
   position: absolute;
-  right: 16px;
-  bottom: 14px;
+  right: ${horizontalScale(16)}px;
+  bottom: ${horizontalScale(14)}px;
   background-color: black;
   border-radius: 50px;
-`;
-
-const RatingNumber = styled.Text`
-  position: absolute;
-  right: ${horizontalScale(16)}px;
-  bottom: ${verticalScale(16)}px;
-
-  color: black;
-`;
-
-const BackgroundCircle1 = styled.View`
-  width: 300px;
-  height: 300px;
-  border-radius: 600px;
-  background-color: rgba(0, 0, 0, 0.046);
-  position: absolute;
-  top: -230px;
-  left: -20%;
-`;
-
-const BackgroundCircle2 = styled(BackgroundCircle1)`
-  top: none;
-  bottom: 0px;
-  left: -150px;
 `;
 
 export {
@@ -90,7 +66,4 @@ export {
   Title,
   SubTitle,
   RatingWrapper,
-  RatingNumber,
-  BackgroundCircle1,
-  BackgroundCircle2,
 };
