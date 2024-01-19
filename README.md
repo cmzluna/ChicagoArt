@@ -1,5 +1,5 @@
 
-# React Native Art Gallery App
+# ChicagoArt
 
 >**About**: This React Native application serves as a simple Art Gallery App, allowing users to explore artworks, view detailed information, and save their favorite pieces. The app utilizes the Art Institute of Chicago API for fetching artwork data. 
 
@@ -30,7 +30,7 @@ Art Institute of Chicago API
 
 ### How to use the app
 
-git clone https://github.com/your-username/react-native-art-gallery.git  
+git clone git@github.com:cmzluna/ChicagoArt.git
 npm install    
 npx react-native run-android  
 
