@@ -1,6 +1,10 @@
 
 # ChicagoArt
 
+
+https://github.com/cmzluna/ChicagoArt/assets/63924389/7b9d6707-85a2-46ed-a32b-dc1e4e340352
+
+
 >**About**: This React Native application serves as a simple Art Gallery App, allowing users to explore artworks, view detailed information, and save their favorite pieces. The app utilizes the Art Institute of Chicago API for fetching artwork data. 
 
 ## Features:  
