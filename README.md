@@ -5,17 +5,17 @@
 
 ## Features:  
 
-###Main Screen:  
+### Main Screen:  
 
 Displays thumbnails and small descriptions of each artwork.  
 Utilizes animated transitions for a seamless user experience.  
 
-###Detail Screen:  
+### Detail Screen:  
 
 Navigates to a detailed screen upon clicking a thumbnail.  
 Presents a higher quality image and comprehensive information about the artwork and its author.  
 
-###Favorites:  
+### Favorites:  
 
 Users can save their favorite artworks.  
 Favorite artworks persist even after the application is closed and reopened.  
