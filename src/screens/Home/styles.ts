@@ -1,5 +1,8 @@
 import styled from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import getScale from "@/utils/GetScale";
+
+const { horizontalScale } = getScale();
 
 const Container = styled.View`
   flex: 1;
@@ -13,7 +16,7 @@ const ArtContainer = styled.View`
   justify-content: "center";
 `;
 const InnerWrapper = styled.View`
-  padding: 10px;
+  padding: ${horizontalScale(10)}px;
 `;
 
 const SafeAreaContainer = styled(SafeAreaView)`

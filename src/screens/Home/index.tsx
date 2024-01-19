@@ -8,10 +8,11 @@ import LoadingIndicator from "@/components/LoadingIndicator";
 import Header from "@/components/Header";
 import getFeaturedArtwork from "@/services/getFeaturedArtwork";
 import Animated from "react-native-reanimated";
+import searchArtworksByQuery from "@/services/searchArtworksByQuery";
 
 export default function Home({ navigation }): React.JSX.Element {
   const [searchQuery, setSearchQuery] = React.useState("");
-
+  const [searchResults, setSearchResults] = React.useState([]);
   const { isLoading: isLoadingArtworks, data: artworksData } = useCallApi({
     api: getArtworksList,
     dispatchCallback: setArtworks,
@@ -20,27 +21,22 @@ export default function Home({ navigation }): React.JSX.Element {
     api: getFeaturedArtwork,
   });
 
-  /*
-  id: number;
-  title: string;
-  api_link: string;
-  thumbnail: {
-    lqip: string;
-  };
-  artist_display: string;
-  date_display: string;
-  main_reference_number: number;
-*/
-
   if (isLoadingArtworks) return <LoadingIndicator />;
 
-  const onSearch = (text: string): void => {
+  const onChange = async (text: string) => {
     if (text) {
-      console.log("typed text = ", text);
-      return;
-    }
+      setSearchQuery(text);
+      try {
+        const res = await searchArtworksByQuery(1, text);
 
+        if (res?.data.length) setSearchResults(res.data);
+        return;
+      } catch (err) {
+        console.log(err);
+      }
+    }
     setSearchQuery("");
+    setSearchResults([]);
   };
 
   return (
@@ -53,7 +49,7 @@ export default function Home({ navigation }): React.JSX.Element {
             originX: 200,
           }}
         >
-          <Header searchQuery={searchQuery} onSearch={onSearch} navigation={navigation} />
+          <Header searchQuery={searchQuery} onChange={onChange} navigation={navigation} />
         </Animated.View>
 
         <InnerWrapper>
@@ -61,7 +57,7 @@ export default function Home({ navigation }): React.JSX.Element {
             <LoadingIndicator />
           ) : (
             <ArtworkList
-              data={artworksData}
+              data={!!searchResults.length ? searchResults : artworksData}
               showFeatured
               featuredData={featuredData[0]}
               navigate={navigation.navigate}

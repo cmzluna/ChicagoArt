@@ -10,7 +10,7 @@ const SectionTitle = styled.Text`
   font-size: 26px;
   font-weight: 800;
   font-family: "Montserrat-Light";
-  color: black;
+  color: #302e44;
 `;
 
 export { Container, SectionTitle };

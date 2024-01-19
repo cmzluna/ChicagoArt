@@ -3,26 +3,41 @@ import getScale from "@/utils/GetScale";
 import InputSearch from "../InputSearch";
 import { LinearGradient } from "react-native-linear-gradient";
 
-const { horizontalScale } = getScale();
+const { verticalScale } = getScale();
 
 const Container = styled(LinearGradient).attrs({
-  colors: ["#302e44", "#EEEEEE"],
+  colors: ["#EEEEEE", "#302e44"],
   start: { x: 0, y: 1 },
   end: { x: 1, y: 3.5 },
 })`
   flex-direction: row;
   border: 1px solid #444364;
+  justify-content: space-around;
   align-items: center;
   display: flex;
-  height: 100px;
+  height: 130px;
+  padding: 12px;
+`;
+
+const InputContainer = styled(LinearGradient).attrs({
+  colors: ["#302e44", "#EEEEEE"],
+  start: { x: 3.5, y: 1 },
+  end: { x: 1, y: 0 },
+})`
+  flex-direction: row;
+  border: 1px solid #444364;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  height: 70px;
 `;
 
 const InnerWrapper = styled.View`
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex: 1;
   flex-direction: row;
-  gap: 12px;
+  padding-left: 20px;
 `;
 
 const Text = styled.Text`
@@ -31,15 +46,14 @@ const Text = styled.Text`
 `;
 
 const ProfileWrapper = styled.View`
-  height: 50px;
-  width: 50px;
+  height: ${verticalScale(40)}px;
+  width: ${verticalScale(40)}px;
   background-color: #eee;
   border-radius: 25px;
   align-items: center;
   justify-content: center;
-  margin-right: 12px;
 `;
 
 const StyledInputSearch = styled(InputSearch)``;
 
-export { Container, InnerWrapper, Text, ProfileWrapper, StyledInputSearch };
+export { Container, InputContainer, InnerWrapper, Text, ProfileWrapper, StyledInputSearch };

@@ -10,11 +10,7 @@ interface InputSearchProps {
 const InputSearch = ({ value, onChangeText, ...props }: InputSearchProps): React.JSX.Element => {
   return (
     <Container {...props}>
-      <Input
-        onChangeText={onChangeText}
-        value={value}
-        placeholder={"Ingresa un nombre o un número"}
-      />
+      <Input onChangeText={onChangeText} value={value} placeholder={"Search for artworks..."} />
 
       <SearchIconWrapper>
         <SvgXml xml={SearchIcon} />

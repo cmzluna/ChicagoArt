@@ -12,14 +12,10 @@ export default async function callApi<T>(
     url,
     data: dataRequest,
     method,
-    // headers: {
-    //   "x-api-key": "API_KEY",
-    // },
   };
 
   try {
     const { data } = await axios.request<{ data: T }>(requestConfig);
-    console.log("data ===> ", data);
     return data;
   } catch (error) {
     if (axios.isAxiosError(error) && error.response?.data) {

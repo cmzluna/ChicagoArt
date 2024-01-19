@@ -23,7 +23,7 @@ export default function Favorites({ navigation }): React.JSX.Element {
         ) : (
           <InnerWrapper>
             <SvgXml xml={Phantom} height={30} width={30} fill="#A7A7A7" />
-            <Title>No favorites added yet...</Title>
+            <Title>No favorites in your account...</Title>
           </InnerWrapper>
         )}
       </ContentWrapper>

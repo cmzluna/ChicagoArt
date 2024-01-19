@@ -1,20 +1,23 @@
 import styled from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Animated from "react-native-reanimated";
+import getScale from "@/utils/GetScale";
+
+const { horizontalScale, verticalScale } = getScale();
 
 const Container = styled.View`
   width: 100%;
   display: flex;
   flex: 1;
-  padding: 8px;
-  gap: 8px;
+  padding: ${horizontalScale(8)}px;
+  gap: ${horizontalScale(8)}px;
 `;
 
 const ArtContainer = styled.View`
   display: flex;
   flex: 1;
-  gap: 8px;
-  height: 250px;
+  gap: ${horizontalScale(8)}px;
+  height: ${verticalScale(250)}px;
   border: 1px solid red;
 `;
 
@@ -39,18 +42,18 @@ const Title = styled.Text`
 const ColumnWrapper = styled.View`
   flex-direction: column;
   flex: 1;
-  gap: 8px;
-  padding: 8px;
+  gap: ${horizontalScale(8)}px;
+  padding: ${horizontalScale(8)}px;
 `;
 
 const RowWrapper = styled.View`
   flex-direction: row;
   flex: 1;
-  gap: 8px;
+  gap: ${horizontalScale(8)}px;
 `;
 
 const StyledImage = styled(Animated.Image)`
-  margin-top: 12px;
+  margin-top: ${verticalScale(12)}px;
   width: 100%;
 `;
 

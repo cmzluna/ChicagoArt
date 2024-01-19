@@ -1,15 +1,6 @@
 import React from "react";
 import { Image, TouchableOpacity } from "react-native";
-import {
-  SafeAreaContainer,
-  ArtContainer,
-  SectionTitleWrapper,
-  ColumnWrapper,
-  SectionTitle,
-  Title,
-  SubTitle,
-  Text,
-} from "./styles";
+import { SafeAreaContainer, ArtContainer, ColumnWrapper, Title, SubTitle, Text } from "./styles";
 import { useSelector } from "react-redux";
 import FavoriteSelector from "../FavoriteSelector";
 import { removeParagraphTags, truncateText } from "@/utils";
@@ -23,7 +14,6 @@ const FeaturedArtwork = ({ data, navigate }): React.JSX.Element => {
   const descriptionText =
     data.description && truncateText(removeParagraphTags(data.description), 35);
 
-  console.log("***", data.artist_display);
   return (
     <TouchableOpacity onPress={() => navigate("ArtworkDetail", { id: data.id })}>
       <SafeAreaContainer>

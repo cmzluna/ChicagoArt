@@ -1,13 +1,12 @@
 import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SvgXml } from "react-native-svg";
-import Home from "@screens/Home";
 import Favorites from "@screens/Favorites";
-import { Platform } from "react-native";
+import { Platform, View } from "react-native";
 import FavoritesIcon from "@assets/icons/FavoritesIcon.svg";
 import HomeIcon from "@assets/icons/HomeIcon.svg";
-import ArtworkDetail from "@/screens/ArtworkDetail";
 import PrimaryStack from "../PrimaryStack";
+import { LinearGradient } from "react-native-linear-gradient";
 
 const TabNav = createBottomTabNavigator();
 
@@ -32,40 +31,40 @@ const TabStack = () => {
           display: "flex",
           alignContent: "center",
           paddingHorizontal: 10,
-          alignItems: "center", // Alinear los íconos verticalmente en el centro
+          alignItems: "center",
           height: Platform.OS === "ios" ? 80 : 65,
         },
         tabBarItemStyle: {
-          flex: 1, // Ajusta el espacio ocupado por cada ícono
+          flex: 1,
         },
+        tabBarBackground: () => (
+          <View style={{ flex: 1 }}>
+            <LinearGradient
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              colors={["#dfcfd4", "#c4446c"]}
+              style={{ height: 4 }}
+            />
+          </View>
+        ),
       }}
     >
       <TabNav.Screen
         name="PrimaryStack"
         component={PrimaryStack}
         options={{
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon icon={HomeIcon} focused={focused} size={32} />
-          ),
+          tabBarIcon: ({ focused }) => <TabBarIcon icon={HomeIcon} focused={focused} size={36} />,
         }}
       />
       <TabNav.Screen
         name="Favorites"
         component={Favorites}
         options={{
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon icon={FavoritesIcon} focused={focused} size={32} />
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon icon={FavoritesIcon} focused={focused} size={36} />
           ),
         }}
       />
-      {/* <TabNav.Screen
-        name="ArtworkDetail"
-        component={ArtworkDetail}
-        options={{
-          tabBarButton: () => null,
-          tabBarVisible: false,
-        }}
-      /> */}
     </TabNav.Navigator>
   );
 };

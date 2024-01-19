@@ -17,12 +17,15 @@ const requiredFields = [
   "thumbnail",
 ].toString();
 
-const getArtworksList = async (page: number, searchQuery = "" as string): Promise<ApiOutput> =>
+const searchArtworksByQuery = async (
+  page = 1 as number,
+  searchQuery = "" as string,
+): Promise<ApiOutput> =>
   await callApi<ApiOutput>(
-    `v1/artworks?fields=${requiredFields}&search?q=${searchQuery}&page=${page}`,
+    `v1/artworks/search?q=${searchQuery}?&fields=${requiredFields}&page=${page}`,
     "get",
     {},
     "Error retrieving artworks list 🤔",
   );
 
-export default getArtworksList;
+export default searchArtworksByQuery;

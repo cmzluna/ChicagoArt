@@ -39,24 +39,11 @@ export const transition = SharedTransition.custom((values) => {
 const ArtworkList = ({ data, showFeatured, featuredData, navigate }): React.JSX.Element => {
   const favorites = useSelector((s) => s.favorites.favorites);
 
-  const initialMode = useRef<boolean>(true);
-
-  useEffect(() => {
-    initialMode.current = false;
-  }, []);
-
-  console.log("featuredData ------> ", featuredData);
-
   const renderItem = ({ item }: { item: Artwork }): JSX.Element => {
     const imageUrl =
       item.image_id && `https://www.artic.edu/iiif/2/${item.image_id}/full/843,/0/default.jpg`;
-
     const descriptionText =
       item.description && truncateText(removeParagraphTags(item.description), 35);
-    const springConfig = {
-      damping: 2,
-      stiffness: 80,
-    };
 
     return (
       <TouchableOpacity onPress={() => navigate("ArtworkDetail", { id: item.id })}>
@@ -68,8 +55,6 @@ const ArtworkList = ({ data, showFeatured, featuredData, navigate }): React.JSX.
               width: 150,
               height: 150,
             }}
-            entering={FadeIn.duration(1000)}
-            exiting={FadeOut.duration(1000)}
           >
             <StyledImage source={{ uri: imageUrl }} height={150} width={150} />
           </Animated.View>

@@ -1,18 +1,21 @@
 import styled from "styled-components/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import getScale from "@/utils/GetScale";
+
+const { horizontalScale, verticalScale } = getScale();
 
 const ArtContainer = styled.View`
   display: flex;
   flex-direction: row;
-  gap: 8px;
-  height: 250px;
+  gap: ${horizontalScale(8)}px;
+  height: ${verticalScale(250)}px;
 `;
 
 const ColumnWrapper = styled.View`
   flex-direction: column;
   flex: 1;
-  gap: 8px;
-  padding: 8px;
+  gap: ${horizontalScale(8)}px;
+  padding: ${horizontalScale(8)}px;
 `;
 
 const SafeAreaContainer = styled(SafeAreaView)`
@@ -27,7 +30,7 @@ const Title = styled.Text`
 `;
 
 const StyledImage = styled.Image`
-  margin-top: 12px;
+  margin-top: ${verticalScale(12)}px;
 `;
 
 const SubTitle = styled.Text`

@@ -1,29 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import { SvgXml } from "react-native-svg";
 import Logo from "@assets/articLogo.svg";
 import ProfileIcon from "@assets/icons/ProfileIcon.svg";
-import { Container, ProfileWrapper, InnerWrapper, StyledInputSearch, Text } from "./styles";
+import { Container, ProfileWrapper, InnerWrapper, StyledInputSearch } from "./styles";
 import { TouchableOpacity } from "react-native";
+import { LinearGradient } from "react-native-linear-gradient";
 
-const Header = ({ searchQuery, onSearch, navigation }) => {
+const Header = ({ searchQuery, onChange, navigation }) => {
   return (
-    <Container>
-      <SvgXml xml={Logo} width={100} height={100} />
-      <InnerWrapper>
-        <StyledInputSearch
-          value={searchQuery}
-          onChangeText={(text) => {
-            onSearch(text);
-          }}
-        />
-      </InnerWrapper>
-
-      <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-        <ProfileWrapper>
-          <SvgXml xml={ProfileIcon} width={20} height={20} />
-        </ProfileWrapper>
-      </TouchableOpacity>
-    </Container>
+    <>
+      <Container>
+        <SvgXml xml={Logo} width={100} height={100} />
+        <InnerWrapper>
+          <StyledInputSearch
+            value={searchQuery}
+            onChangeText={(text) => {
+              onChange(text);
+            }}
+          />
+          <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+            <ProfileWrapper>
+              <SvgXml xml={ProfileIcon} width={20} height={20} />
+            </ProfileWrapper>
+          </TouchableOpacity>
+        </InnerWrapper>
+      </Container>
+      <LinearGradient
+        start={{ x: 1, y: 0 }}
+        end={{ x: 0, y: 0 }}
+        colors={["#dfcfd4", "#c4446c"]}
+        style={{ height: 4, width: "100%" }}
+      />
+    </>
   );
 };
 

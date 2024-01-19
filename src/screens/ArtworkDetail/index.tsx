@@ -19,11 +19,17 @@ import { useSelector } from "react-redux";
 import Header from "@/components/Header";
 import Animated from "react-native-reanimated";
 import { transition } from "@/components/ArtworkList";
+import { Artwork } from "@/types";
 
 export default function ArtworkDetail({ route }): React.JSX.Element {
   const { id } = route.params;
+
+  interface ApiResponse {
+    isLoading: boolean;
+    data: Artwork[];
+  }
   const favorites = useSelector((s) => s.favorites.favorites);
-  const { isLoading: isLoadingArtwork, data: artworkData } = useCallApi({
+  const { isLoading: isLoadingArtwork, data: artworkData }: ApiResponse = useCallApi({
     api: () => getArtworkById({ id }),
     dependencies: [id],
   });
@@ -35,11 +41,6 @@ export default function ArtworkDetail({ route }): React.JSX.Element {
   const imageRatio =
     thumbnailObject["height"] != null ? thumbnailObject["height"] / thumbnailObject["width"] : null;
   const imageHeight = imageRatio != null ? Dimensions.get("window").width * imageRatio : null;
-
-  console.log("artworkData-----------> ", artworkData.thumbnail);
-  console.log("artworkData.image_id-----------> ", artworkData.image_id);
-
-  console.log("imageRatio -> ", imageRatio);
   const descriptionText = artworkData.description && removeParagraphTags(artworkData.description);
 
   return (
