@@ -1,7 +1,9 @@
 import { NativeStackScreenProps } from "@react-navigation/stack";
 
 export type PrivateStackParamList = {
-  DrawerStack: undefined;
+  Home: undefined;
+  ArtworkDetail: { id: number };
+  WebViewScreen: undefined;
 };
 
 export type PrivateScreenProps = NativeStackScreenProps<PrivateStackParamList>;

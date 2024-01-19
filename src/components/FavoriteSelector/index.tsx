@@ -5,11 +5,17 @@ import { TouchableOpacity } from "react-native";
 import { isFavorite } from "@/utils";
 import { useDispatch } from "react-redux";
 import { addFavorite, removeFavorite } from "@/store/slices/favorites";
+import { Artwork } from "@/types";
 
-const FavoriteSelector = ({ favorites, item }) => {
+interface FavoriteListProps {
+  favorites: Artwork[];
+  item: Artwork;
+}
+
+const FavoriteSelector: React.FC<FavoriteListProps> = ({ favorites, item }) => {
   const dispatch = useDispatch();
 
-  const toggleFavorite = (item) => {
+  const toggleFavorite = (item: Artwork) => {
     if (isFavorite(favorites, item)) {
       dispatch(removeFavorite(item));
     } else {

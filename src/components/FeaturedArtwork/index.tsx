@@ -6,8 +6,14 @@ import FavoriteSelector from "../FavoriteSelector";
 import { removeParagraphTags, truncateText } from "@/utils";
 import Animated from "react-native-reanimated";
 import { transition } from "../ArtworkList";
+import { Artwork } from "@/types";
 
-const FeaturedArtwork = ({ data, navigate }): React.JSX.Element => {
+interface FeaturedArtworkProps {
+  data: Artwork;
+  navigate: any;
+}
+
+const FeaturedArtwork = ({ data, navigate }: FeaturedArtworkProps): React.JSX.Element => {
   const favorites = useSelector((s) => s.favorites.favorites);
   const imageUrl = `https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg`;
 

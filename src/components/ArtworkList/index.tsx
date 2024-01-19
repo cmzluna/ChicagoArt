@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { FlatList, TouchableOpacity } from "react-native";
 import { ArtContainer, ColumnWrapper, StyledImage, Title, SubTitle, Text } from "./styles";
 import { Artwork } from "@/types";
@@ -12,11 +12,11 @@ import Animated, {
   Easing,
   SharedTransition,
   withTiming,
-  FadeIn,
-  FadeOut,
   Layout,
   withSpring,
 } from "react-native-reanimated";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { PrivateStackParamList } from "@types/navigation";
 
 export const transition = SharedTransition.custom((values) => {
   "worklet";
@@ -36,7 +36,21 @@ export const transition = SharedTransition.custom((values) => {
   };
 });
 
-const ArtworkList = ({ data, showFeatured, featuredData, navigate }): React.JSX.Element => {
+type HomeScreenNavigationProp = StackNavigationProp<PrivateStackParamList, "Home">;
+
+interface ArtworkListProps {
+  data: Artwork[];
+  showFeatured: boolean;
+  featuredData: Artwork;
+  navigate: HomeScreenNavigationProp["navigate"];
+}
+
+const ArtworkList: React.FC<ArtworkListProps> = ({
+  data,
+  showFeatured,
+  featuredData,
+  navigate,
+}): React.JSX.Element => {
   const favorites = useSelector((s) => s.favorites.favorites);
 
   const renderItem = ({ item }: { item: Artwork }): JSX.Element => {

@@ -40,6 +40,10 @@ const InnerWrapper = styled.View`
   padding-left: 20px;
 `;
 
+const InvisibleBox = styled.View`
+  flex: 1;
+`;
+
 const Text = styled.Text`
   font-size: 12px;
   font-weight: 400;
@@ -56,4 +60,12 @@ const ProfileWrapper = styled.View`
 
 const StyledInputSearch = styled(InputSearch)``;
 
-export { Container, InputContainer, InnerWrapper, Text, ProfileWrapper, StyledInputSearch };
+export {
+  Container,
+  InputContainer,
+  InvisibleBox,
+  InnerWrapper,
+  Text,
+  ProfileWrapper,
+  StyledInputSearch,
+};
