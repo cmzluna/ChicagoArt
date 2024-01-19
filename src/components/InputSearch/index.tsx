@@ -7,6 +7,7 @@ interface InputSearchProps {
   value: string;
   onChangeText: (text: string) => void;
 }
+
 const InputSearch = ({ value, onChangeText, ...props }: InputSearchProps): React.JSX.Element => {
   return (
     <Container {...props}>

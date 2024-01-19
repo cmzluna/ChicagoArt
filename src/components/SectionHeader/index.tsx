@@ -1,7 +1,11 @@
 import React from "react";
 import { Container, SectionTitle } from "./styles";
 
-const SectionHeader = ({ title }) => {
+interface SectionHeaderProps {
+  title: string;
+}
+
+const SectionHeader = ({ title }: SectionHeaderProps): React.JSX.Element | null => {
   if (!title) return null;
 
   return (

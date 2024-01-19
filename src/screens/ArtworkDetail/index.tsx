@@ -28,6 +28,7 @@ export default function ArtworkDetail({ route }): React.JSX.Element {
     isLoading: boolean;
     data: Artwork[];
   }
+
   const favorites = useSelector((s) => s.favorites.favorites);
   const { isLoading: isLoadingArtwork, data: artworkData }: ApiResponse = useCallApi({
     api: () => getArtworkById({ id }),
@@ -52,7 +53,7 @@ export default function ArtworkDetail({ route }): React.JSX.Element {
           originX: 100,
         }}
       >
-        <Header />
+        <Header hideSearch />
       </Animated.View>
       <Container>
         <ScrollView>

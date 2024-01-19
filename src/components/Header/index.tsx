@@ -2,22 +2,38 @@ import React from "react";
 import { SvgXml } from "react-native-svg";
 import Logo from "@assets/articLogo.svg";
 import ProfileIcon from "@assets/icons/ProfileIcon.svg";
-import { Container, ProfileWrapper, InnerWrapper, StyledInputSearch } from "./styles";
+import { Container, ProfileWrapper, InnerWrapper, StyledInputSearch, InvisibleBox } from "./styles";
 import { TouchableOpacity } from "react-native";
 import { LinearGradient } from "react-native-linear-gradient";
 
-const Header = ({ searchQuery, onChange, navigation }) => {
+interface HeaderProps {
+  searchQuery: string;
+  hideSearch: boolean;
+  onChange: (t: string) => void;
+  navigation: () => void;
+}
+
+const Header = ({
+  searchQuery,
+  hideSearch,
+  onChange,
+  navigation,
+}: HeaderProps): React.JSX.Element => {
   return (
     <>
       <Container>
         <SvgXml xml={Logo} width={100} height={100} />
         <InnerWrapper>
-          <StyledInputSearch
-            value={searchQuery}
-            onChangeText={(text) => {
-              onChange(text);
-            }}
-          />
+          {!hideSearch ? (
+            <StyledInputSearch
+              value={searchQuery}
+              onChangeText={(text) => {
+                onChange(text);
+              }}
+            />
+          ) : (
+            <InvisibleBox />
+          )}
           <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
             <ProfileWrapper>
               <SvgXml xml={ProfileIcon} width={20} height={20} />
